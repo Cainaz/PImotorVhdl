@@ -1,70 +1,107 @@
 library ieee;
 use IEEE.std_logic_1164.all;
 
-ENTITY maquina_estados IS
-   PORT(
-      clk      : IN   STD_LOGIC;  --clock
-      input    : IN   STD_LOGIC;  --vetor de entrada (no caso seria o sinal vindo do eletrodo).
-      output   : OUT  STD_LOGIC_VECTOR(2 downto 0)); -- sinal de saída para movimento do motor i.e., ligar bobina azul ou ligar bobina amarela e etc..
+entity maquina_estados is
+   port(
+      	clk      : in   std_logic;  --clock
+      	input    : in   std_logic;  --vetor de entrada (no caso seria o sinal vindo do eletrodo).
+      	azul   : out  std_logic; -- sinal de saída para movimento do motor i.e., ligar bobina azul ou ligar bobina amarela e etc
+      	rosa   : out  std_logic;
+	amarelo   : out  std_logic;
+	laranja   : out  std_logic
+);
 END maquina_estados;
 
-ARCHITECTURE a OF maquina_estados IS
-   	TYPE STATE_TYPE IS (s0, s1, s2, s3);  --quatro estados , um para cada bobina.
-   	SIGNAL state   : STATE_TYPE;  -- inicialização da maquina de estados.
-BEGIN
-   PROCESS (clk)
-   variable maxangle: integer ; -- variável para limite de ângulo.
-   BEGIN
-      IF (clk'EVENT AND clk = '1') THEN
-		IF (input = '1') THEN
-			IF(maxangle > 16) THEN   --condição de ângulo máximo. -- **16 é só para um teste, no caso de 90 graus seria 512, por exemplo.
-				state <= s1;
-			ELSE
-			CASE state IS
-				WHEN s0=>
-					state <= s1;
-				WHEN s1=>
-					state <= s2;
-				WHEN s2=>
-					state <= s3;
-				WHEN s3=>
-					state <= s0;
-			END CASE;
-			END IF;
-				maxangle := maxangle + 1;  --incremento ao ângulo.
+architecture bitch of maquina_estados is	
+begin
+	process(clk)
+		variable passo_atual : integer range 1 to 5 := 1;
+		variable passo_atual2 : integer range 1 to 5 := 1;
+		variable angulo_atual: integer := 0; 
+	begin
+	if (rising_edge(clk)) then
+		if(input = '1') then
+			if (angulo_atual > 500) then
+				azul <= '0';
+				rosa <= '0';
+				amarelo <= '0';
+				laranja <= '0';
+			else
+				case passo_atual is
+					when 1 =>
+		 				azul <= '1';
+						rosa <= '0';
+						amarelo <= '0';
+						laranja <= '0'; 
+						passo_atual := passo_atual + 1;
+					when 2 =>
+		 				azul <= '0';
+						rosa <= '1';
+						amarelo <= '0';
+						laranja <= '0'; 
+						passo_atual := passo_atual + 1;
+					when 3 =>
+		 				azul <= '0';
+						rosa <= '0';
+						amarelo <= '1';
+						laranja <= '0'; 
+						passo_atual := passo_atual + 1;
+					when 4 =>
+		 				azul <= '0';
+						rosa <= '0';
+						amarelo <= '0';
+						laranja <= '1';
+						passo_atual := passo_atual + 1;
+					when others =>										
+				end case;
 				
-				-- começo do giro reverso	
-			IF(maxangle <= 0) THEN     --condição de ângulo mínimo.
-				state <= s1;
-			ELSE
-			CASE state IS
-				WHEN s0=>
-					state <= s3;
-				WHEN s1=>
-					state <= s0;
-				WHEN s2=>
-					state <= s1;
-				WHEN s3=>
-					state <= s2;
-			END CASE;
-			END IF;
-				maxangle := maxangle - 1;    -- decremento ao ângulo.
-		END IF;
-	END IF;
-   END PROCESS;
-   
-   PROCESS (state)
-   BEGIN
-      CASE state IS
-         WHEN s0 =>
-            output <= "001"; -- ligar bobina azul.
-         WHEN s1 =>
-            output <= "010";  -- ligar bobina rosa.
-         WHEN s2 =>
-            output <= "011";  -- ligar bobina amarela.
-	 WHEN s3 =>
-            output <= "110";  -- ligar bobina laranja.
-      END CASE;
-END PROCESS;
-   
-END a;
+				if (passo_atual > 4) then
+					passo_atual := 1; 
+				end if;
+				angulo_atual := angulo_atual + 1;
+			end if;
+		else 
+			if (angulo_atual < 0) then
+				azul <= '0';
+				rosa <= '0';
+				amarelo <= '0';
+				laranja <= '0';
+			else
+				case passo_atual2 is
+					when 1 =>
+		 				azul <= '0';
+						rosa <= '0';
+						amarelo <= '0';
+						laranja <= '1';
+						passo_atual2 := passo_atual2 + 1;
+					when 2 =>
+		 				azul <= '0';
+						rosa <= '0';
+						amarelo <= '1';
+						laranja <= '0';
+						passo_atual2 := passo_atual2 + 1;
+					when 3 =>
+		 				azul <= '0';
+						rosa <= '1';
+						amarelo <= '0';
+						laranja <= '0'; 
+						passo_atual2 := passo_atual2 + 1;
+					when 4 =>
+		 				azul <= '1';
+						rosa <= '0';
+						amarelo <= '0';
+						laranja <= '0';
+						passo_atual2 := passo_atual2 + 1;
+					when others =>				 
+				end case;
+
+				if (passo_atual2 > 4) then
+					passo_atual2 := 1; 
+				end if;
+				angulo_atual := angulo_atual - 1;
+			end if;
+		
+		end if;
+	end if;
+	end process;
+end bitch;

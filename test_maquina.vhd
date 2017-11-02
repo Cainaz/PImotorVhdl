@@ -11,15 +11,24 @@ ARCHITECTURE behavior OF test_maquina IS
 
 	PORT(
 		clk      : IN   STD_LOGIC;  --clock
-      		input    : IN   STD_LOGIC_VECTOR(90 downto 0) := (others => '0');  --vetor de entrada (no caso seria o sinal vindo do eletrodo).
-      		output   : OUT  STD_LOGIC_VECTOR(2 downto 0));
+		input    : IN   STD_LOGIC;
+      		 --vetor de entrada (no caso seria o sinal vindo do eletrodo).
+      		azul   : OUT  STD_LOGIC;
+		rosa   : OUT  STD_LOGIC;
+		amarelo   : OUT  STD_LOGIC;
+		laranja  : OUT  STD_LOGIC);
 
 END COMPONENT;
-
-	signal clk : std_logic := '0';
-	signal input : std_logic_vector(90 downto 0) := (others => '0');
-	signal output : std_logic_vector(2 downto 0);
 	
+
+
+	signal clk : std_logic;
+	signal input : std_logic;
+	signal azul   : STD_LOGIC;
+	signal rosa   : STD_LOGIC;
+	signal amarelo  : STD_LOGIC;
+	signal laranja  : STD_LOGIC;
+	signal bitvector  : STD_LOGIC_VECTOR(40 downto 0) := (others => '0'); 
 	constant clockp : time := 1 ns;
 
 BEGIN
@@ -27,7 +36,10 @@ BEGIN
 	utt: maquina_estados PORT MAP (
 		clk => clk,
 		input => input,
-		output => output
+		azul => azul,
+		rosa => rosa,
+		amarelo => amarelo,
+		laranja => laranja
 
 	);
 
@@ -41,8 +53,12 @@ clk_process :process
 
 stim_proc: process
    begin       
-      	input <= "1111111111100000000000000000000000000111111111111111111111111111111111111111111100000000000";
-	wait;
+      	bitvector <= "00000000000000000000111111111111111111111";
+	for i in 0 to bitvector'length-1 loop
+      input <= bitvector(i);
+      wait until rising_edge(clk); 
+    end loop;
+    wait;    
   end process;
 
 END;
