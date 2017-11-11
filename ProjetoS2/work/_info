@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS
+Econtrol
+Z0 w1510428337
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2
+Z6 8C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/control.vhd
+Z7 FC:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/control.vhd
+l0
+L7
+VdW81JO_d@2JLQ065GNEDE1
+!s100 MF?KIVKoANXTR8DOS_`W_2
+Z8 OP;C;10.4a;61
+32
+Z9 !s110 1510428462
+!i10b 1
+Z10 !s108 1510428462.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/control.vhd|
+Z12 !s107 C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/control.vhd|
+!i113 1
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+Aarq
+R1
+R2
+R3
+R4
+DEx4 work 7 control 0 22 dW81JO_d@2JLQ065GNEDE1
+l23
+L18
+V21EVVii=Z1C;]Wo<H>M0W2
+!s100 kWF3[_nZ`Qm:SP64z;BZT1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Etb_control
+Z15 w1510428400
+Z16 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R1
+R2
+R4
+R3
+Z17 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R5
+Z18 8C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd
+Z19 FC:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd
+l0
+L12
+Vi6CMOVdaO`ggKb4BQ>[2d1
+!s100 ONKYG8oa_VT>hJh5iKSYG0
+R8
+32
+Z20 !s110 1510428463
+!i10b 1
+R10
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd|
+Z22 !s107 C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd|
+!i113 1
+R13
+R14
+Aarq
+R16
+R1
+R2
+R4
+R3
+R17
+Z23 DEx4 work 10 tb_control 0 22 i6CMOVdaO`ggKb4BQ>[2d1
+l47
+L16
+Z24 VCcKQoFFa0=GoiXNCNT3IE3
+Z25 !s100 cJRKiW3136Wb?2?>JW2U51
+R8
+32
+R20
+!i10b 1
+R10
+R21
+R22
+!i113 1
+R13
+R14

@@ -1,0 +1,65 @@
+
+
+library IEEE;
+use ieee.std_logic_1164.all;                                                                                                                                   
+use ieee.std_logic_unsigned.all; 
+                                                                                                                                                                                                                                        
+entity control is                                                                                                                
+ port                                                                                                                                                                                                       
+  ( in1 : in std_logic;
+    stop : in std_logic := '0';
+    rst : in std_logic;                                                                                                                              
+    out1 : out std_logic;
+    out2 : out std_logic;                                                                                                                                          
+    clk : in std_logic                                                                                                                                                           
+  );                                                                                                                                                                                                                                                                                                                                             
+ end control;                                                                                                                        
+
+ architecture arq of control is                                                                                                                        
+ type sm_type is (parado,s0, s1);
+signal sm:  sm_type;                                                                                                                                                     
+             
+         
+ begin
+ 
+  process (clk,stop)
+  begin 
+	if stop = '1' then
+	sm <= parado;
+   elsif rising_edge (clk) then 
+    case sm is
+	when parado =>
+		sm <= s0;
+     when s0 => 
+	     if in1 = '0' then 
+	       sm <= s0;
+       else 
+	       sm <= s1;
+       end if;
+     when s1 =>    
+	     if in1 = '0' then
+  	     sm <= s0;
+       else 
+	       sm <= s1;
+       end if;
+		
+   end case;
+  end if;
+  end process;
+  
+  process (sm, in1)   
+    begin                                                                                                                                                                
+     case sm is
+        when s0 => 
+		out1 <= '0';
+		out2 <= '1';                                                       
+        when s1 => 
+		out1 <= '1';
+		out2 <= '0';
+	when parado =>
+		out1 <= '0';
+		out2 <= '0';
+      end case;                                                             
+    end process;
+
+  end arq;  

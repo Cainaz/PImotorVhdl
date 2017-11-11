@@ -1,0 +1,25 @@
+{C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/control.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/control.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity control
+-- Compiling architecture arq of control
+
+} {} {}} {C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling entity tb_control
+-- Compiling architecture arq of tb_control
+** Warning: C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd(64): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/ProjetoS2/tb_control.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}}
