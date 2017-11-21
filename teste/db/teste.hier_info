@@ -1,0 +1,8 @@
+|teste
+in1 => out2.IN0
+in1 => out1.DATAIN
+in2 => out2.IN1
+out1 <= in1.DB_MAX_OUTPUT_PORT_TYPE
+out2 <= out2.DB_MAX_OUTPUT_PORT_TYPE
+
+

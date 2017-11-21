@@ -1,0 +1,13 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/teste/teste.vhd
+source_file = 1, C:/Users/Caina/Documents/PI 6 semestre/PImotorVhdl/teste/db/teste.cbx.xml
+source_file = 1, c:/altera/13.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, c:/altera/13.0/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, c:/altera/13.0/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, c:/altera/13.0/quartus/libraries/vhdl/ieee/timing_p.vhd
+design_name = teste
+instance = comp, \in1~I\, in1, teste, 1
+instance = comp, \in2~I\, in2, teste, 1
+instance = comp, \out2~0\, out2~0, teste, 1
+instance = comp, \out1~I\, out1, teste, 1
+instance = comp, \out2~I\, out2, teste, 1

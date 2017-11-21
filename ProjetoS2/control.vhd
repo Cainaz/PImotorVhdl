@@ -6,9 +6,8 @@ use ieee.std_logic_unsigned.all;
                                                                                                                                                                                                                                         
 entity control is                                                                                                                
  port                                                                                                                                                                                                       
-  ( in1 : in std_logic;
-    stop : in std_logic := '0';
-    rst : in std_logic;                                                                                                                              
+  ( in1 : in std_logic := '0';
+    stop : in std_logic := '0';                                                                                                                              
     out1 : out std_logic;
     out2 : out std_logic;                                                                                                                                          
     clk : in std_logic                                                                                                                                                           
@@ -47,7 +46,7 @@ signal sm:  sm_type;
   end if;
   end process;
   
-  process (sm, in1)   
+  process (sm)   
     begin                                                                                                                                                                
      case sm is
         when s0 => 

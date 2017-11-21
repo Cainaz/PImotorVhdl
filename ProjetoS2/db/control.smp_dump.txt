@@ -1,0 +1,6 @@
+
+State Machine - |control|sm
+Name sm.s1 sm.s0 sm.parado 
+sm.parado 0 0 0 
+sm.s0 0 1 1 
+sm.s1 1 0 1 

@@ -1,0 +1,7 @@
+
+State Machine - |teste|sm
+Name sm.s3 sm.s2 sm.s1 sm.s0 
+sm.s0 0 0 0 0 
+sm.s1 0 0 1 1 
+sm.s2 0 1 0 1 
+sm.s3 1 0 0 1 

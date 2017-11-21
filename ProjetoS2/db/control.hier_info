@@ -1,0 +1,9 @@
+|control
+in1 => sm.DATAA
+in1 => Selector0.IN1
+stop => sm~4.DATAIN
+out1 <= out1.DB_MAX_OUTPUT_PORT_TYPE
+out2 <= out2.DB_MAX_OUTPUT_PORT_TYPE
+clk => sm~2.DATAIN
+
+
