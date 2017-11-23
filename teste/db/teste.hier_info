@@ -1,8 +1,9 @@
 |teste
-in1 => out2.IN0
-in1 => out1.DATAIN
-in2 => out2.IN1
-out1 <= in1.DB_MAX_OUTPUT_PORT_TYPE
-out2 <= out2.DB_MAX_OUTPUT_PORT_TYPE
+controle => saida1.IN0
+controle => saida2.IN0
+parar => saida1.IN1
+parar => saida2.IN1
+saida1 <= saida1.DB_MAX_OUTPUT_PORT_TYPE
+saida2 <= saida2.DB_MAX_OUTPUT_PORT_TYPE
 
 

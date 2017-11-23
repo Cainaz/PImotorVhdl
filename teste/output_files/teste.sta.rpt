@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for teste
-Mon Nov 20 15:33:04 2017
+Thu Nov 23 13:09:37 2017
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -121,26 +121,28 @@ No paths to report.
 No paths to report.
 
 
-+------------------------------------------------------------+
-; Propagation Delay                                          ;
-+------------+-------------+-------+--------+--------+-------+
-; Input Port ; Output Port ; RR    ; RF     ; FR     ; FF    ;
-+------------+-------------+-------+--------+--------+-------+
-; in1        ; out1        ; 5.134 ;        ;        ; 5.134 ;
-; in1        ; out2        ;       ; 5.991  ; 5.991  ;       ;
-; in2        ; out2        ;       ; 10.710 ; 10.710 ;       ;
-+------------+-------------+-------+--------+--------+-------+
++--------------------------------------------------------------+
+; Propagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; controle   ; saida1      ; 11.132 ;        ;        ; 11.132 ;
+; controle   ; saida2      ;        ; 10.912 ; 10.912 ;        ;
+; parar      ; saida1      ; 11.117 ;        ;        ; 11.117 ;
+; parar      ; saida2      ; 10.931 ;        ;        ; 10.931 ;
++------------+-------------+--------+--------+--------+--------+
 
 
-+------------------------------------------------------------+
-; Minimum Propagation Delay                                  ;
-+------------+-------------+-------+--------+--------+-------+
-; Input Port ; Output Port ; RR    ; RF     ; FR     ; FF    ;
-+------------+-------------+-------+--------+--------+-------+
-; in1        ; out1        ; 5.134 ;        ;        ; 5.134 ;
-; in1        ; out2        ;       ; 5.991  ; 5.991  ;       ;
-; in2        ; out2        ;       ; 10.710 ; 10.710 ;       ;
-+------------+-------------+-------+--------+--------+-------+
++--------------------------------------------------------------+
+; Minimum Propagation Delay                                    ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; controle   ; saida1      ; 11.132 ;        ;        ; 11.132 ;
+; controle   ; saida2      ;        ; 10.912 ; 10.912 ;        ;
+; parar      ; saida1      ; 11.117 ;        ;        ; 11.117 ;
+; parar      ; saida2      ; 10.931 ;        ;        ; 10.931 ;
++------------+-------------+--------+--------+--------+--------+
 
 
 ----------------------------
@@ -178,9 +180,10 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; in1        ; out1        ; 2.316 ;       ;       ; 2.316 ;
-; in1        ; out2        ;       ; 2.557 ; 2.557 ;       ;
-; in2        ; out2        ;       ; 5.113 ; 5.113 ;       ;
+; controle   ; saida1      ; 5.260 ;       ;       ; 5.260 ;
+; controle   ; saida2      ;       ; 5.134 ; 5.134 ;       ;
+; parar      ; saida1      ; 5.270 ;       ;       ; 5.270 ;
+; parar      ; saida2      ; 5.145 ;       ;       ; 5.145 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -189,9 +192,10 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; in1        ; out1        ; 2.316 ;       ;       ; 2.316 ;
-; in1        ; out2        ;       ; 2.557 ; 2.557 ;       ;
-; in2        ; out2        ;       ; 5.113 ; 5.113 ;       ;
+; controle   ; saida1      ; 5.260 ;       ;       ; 5.260 ;
+; controle   ; saida2      ;       ; 5.134 ; 5.134 ;       ;
+; parar      ; saida1      ; 5.270 ;       ;       ; 5.270 ;
+; parar      ; saida2      ; 5.145 ;       ;       ; 5.145 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -205,15 +209,16 @@ No paths to report.
 +------------------+-------+------+----------+---------+---------------------+
 
 
-+------------------------------------------------------------+
-; Progagation Delay                                          ;
-+------------+-------------+-------+--------+--------+-------+
-; Input Port ; Output Port ; RR    ; RF     ; FR     ; FF    ;
-+------------+-------------+-------+--------+--------+-------+
-; in1        ; out1        ; 5.134 ;        ;        ; 5.134 ;
-; in1        ; out2        ;       ; 5.991  ; 5.991  ;       ;
-; in2        ; out2        ;       ; 10.710 ; 10.710 ;       ;
-+------------+-------------+-------+--------+--------+-------+
++--------------------------------------------------------------+
+; Progagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; controle   ; saida1      ; 11.132 ;        ;        ; 11.132 ;
+; controle   ; saida2      ;        ; 10.912 ; 10.912 ;        ;
+; parar      ; saida1      ; 11.117 ;        ;        ; 11.117 ;
+; parar      ; saida2      ; 10.931 ;        ;        ; 10.931 ;
++------------+-------------+--------+--------+--------+--------+
 
 
 +----------------------------------------------------------+
@@ -221,9 +226,10 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; in1        ; out1        ; 2.316 ;       ;       ; 2.316 ;
-; in1        ; out2        ;       ; 2.557 ; 2.557 ;       ;
-; in2        ; out2        ;       ; 5.113 ; 5.113 ;       ;
+; controle   ; saida1      ; 5.260 ;       ;       ; 5.260 ;
+; controle   ; saida2      ;       ; 5.134 ; 5.134 ;       ;
+; parar      ; saida1      ; 5.270 ;       ;       ; 5.270 ;
+; parar      ; saida2      ; 5.145 ;       ;       ; 5.145 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -253,9 +259,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 2     ; 2    ;
-; Unconstrained Input Port Paths  ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 4     ; 4    ;
 ; Unconstrained Output Ports      ; 2     ; 2    ;
-; Unconstrained Output Port Paths ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
 +---------------------------------+-------+------+
 
 
@@ -265,7 +271,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Mon Nov 20 15:33:03 2017
+    Info: Processing started: Thu Nov 23 13:09:35 2017
 Info: Command: quartus_sta teste -c teste
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -298,9 +304,9 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 425 megabytes
-    Info: Processing ended: Mon Nov 20 15:33:04 2017
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 435 megabytes
+    Info: Processing ended: Thu Nov 23 13:09:37 2017
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

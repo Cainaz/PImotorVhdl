@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.0 Build 156 04/24/2013 SJ Web Edition"
 
--- DATE "11/20/2017 15:33:06"
+-- DATE "11/23/2017 13:09:39"
 
 -- 
 -- Device: Altera EP2C5T144C8 Package TQFP144
@@ -33,18 +33,18 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY 	teste IS
     PORT (
-	in1 : IN std_logic;
-	in2 : IN std_logic;
-	out1 : OUT std_logic;
-	out2 : OUT std_logic
+	controle : IN std_logic;
+	parar : IN std_logic;
+	saida1 : OUT std_logic;
+	saida2 : OUT std_logic
 	);
 END teste;
 
 -- Design Ports Information
--- out1	=>  Location: PIN_87,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- out2	=>  Location: PIN_86,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- in1	=>  Location: PIN_91,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- in2	=>  Location: PIN_75,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- saida1	=>  Location: PIN_32,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- saida2	=>  Location: PIN_26,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- controle	=>  Location: PIN_28,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- parar	=>  Location: PIN_27,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF teste IS
@@ -57,28 +57,27 @@ SIGNAL devpor : std_logic := '1';
 SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
-SIGNAL ww_in1 : std_logic;
-SIGNAL ww_in2 : std_logic;
-SIGNAL ww_out1 : std_logic;
-SIGNAL ww_out2 : std_logic;
-SIGNAL \in1~combout\ : std_logic;
-SIGNAL \in2~combout\ : std_logic;
-SIGNAL \out2~0_combout\ : std_logic;
-SIGNAL \ALT_INV_out2~0_combout\ : std_logic;
+SIGNAL ww_controle : std_logic;
+SIGNAL ww_parar : std_logic;
+SIGNAL ww_saida1 : std_logic;
+SIGNAL ww_saida2 : std_logic;
+SIGNAL \controle~combout\ : std_logic;
+SIGNAL \parar~combout\ : std_logic;
+SIGNAL \saida1~0_combout\ : std_logic;
+SIGNAL \saida2~0_combout\ : std_logic;
 
 BEGIN
 
-ww_in1 <= in1;
-ww_in2 <= in2;
-out1 <= ww_out1;
-out2 <= ww_out2;
+ww_controle <= controle;
+ww_parar <= parar;
+saida1 <= ww_saida1;
+saida2 <= ww_saida2;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\ALT_INV_out2~0_combout\ <= NOT \out2~0_combout\;
 
--- Location: PIN_91,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\in1~I\ : cycloneii_io
+-- Location: PIN_28,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\controle~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -100,11 +99,11 @@ PORT MAP (
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => GND,
-	padio => ww_in1,
-	combout => \in1~combout\);
+	padio => ww_controle,
+	combout => \controle~combout\);
 
--- Location: PIN_75,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\in2~I\ : cycloneii_io
+-- Location: PIN_27,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\parar~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -126,26 +125,41 @@ PORT MAP (
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => GND,
-	padio => ww_in2,
-	combout => \in2~combout\);
+	padio => ww_parar,
+	combout => \parar~combout\);
 
--- Location: LCCOMB_X27_Y6_N0
-\out2~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X1_Y4_N8
+\saida1~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \out2~0_combout\ = (\in2~combout\ & \in1~combout\)
+-- \saida1~0_combout\ = (\controle~combout\) # (\parar~combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000000000000",
+	lut_mask => "1111111111001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \in2~combout\,
-	datad => \in1~combout\,
-	combout => \out2~0_combout\);
+	datab => \controle~combout\,
+	datad => \parar~combout\,
+	combout => \saida1~0_combout\);
 
--- Location: PIN_87,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
-\out1~I\ : cycloneii_io
+-- Location: LCCOMB_X1_Y4_N2
+\saida2~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \saida2~0_combout\ = (\parar~combout\) # (!\controle~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100110011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \controle~combout\,
+	datad => \parar~combout\,
+	combout => \saida2~0_combout\);
+
+-- Location: PIN_32,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+\saida1~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -163,15 +177,15 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \in1~combout\,
+	datain => \saida1~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
-	padio => ww_out1);
+	padio => ww_saida1);
 
--- Location: PIN_86,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
-\out2~I\ : cycloneii_io
+-- Location: PIN_26,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+\saida2~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -189,12 +203,12 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \ALT_INV_out2~0_combout\,
+	datain => \saida2~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
-	padio => ww_out2);
+	padio => ww_saida2);
 END structure;
 
 
